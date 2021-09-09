@@ -16,6 +16,7 @@ final class PrimeFactors
         } else {
             return [];
         }
+        return [];
     }
 
 }

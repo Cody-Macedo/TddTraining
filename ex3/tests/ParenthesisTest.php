@@ -16,7 +16,17 @@ class ParenthesisTest extends TestCase
     {
         $this->assertEquals(false, Parenthesis::isGoodParenthesis("((foo)"));
         $this->assertEquals(false, Parenthesis::isGoodParenthesis("())"));
+    }
+    public function testSpecialCase()
+    {
         $this->assertEquals(false, Parenthesis::isGoodParenthesis(")(()"));
     }
+
+    public function testSecondeSpecialCase()
+    {
+        $this->assertEquals(false, Parenthesis::isGoodParenthesis("())"));
+    }
+
+
 
 }

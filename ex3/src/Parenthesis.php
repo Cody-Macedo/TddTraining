@@ -6,21 +6,21 @@ final class Parenthesis
     public static function isGoodParenthesis(string $text)
     {
         $arrText = str_split($text);
-        $openParenthesis = 0;
-        $closeParenthesis = 0;
+        $countGood = 0;
         for ($i = 0; $i < count($arrText); $i++) {
-            if ($arrText[$i] == "(") {
-                $openParenthesis += 1;
-            } else if ($arrText[$i] == "(") {
-                $closeParenthesis += 1;
+            if ($arrText[$i] === "(") {
+                $countGood += 1;
+            } else if ($arrText[$i] === ")") {
+                $countGood -= 1;
+            }
+            if ($countGood < 0){
+                return false;
             }
         }
-
-        if ($openParenthesis == $closeParenthesis) {
+        if ($countGood == 0) {
             return true;
         } else {
             return false;
         }
-
     }
 }

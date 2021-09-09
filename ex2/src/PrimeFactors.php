@@ -19,4 +19,19 @@ final class PrimeFactors
         return [];
     }
 
+
+    public static function correctionGenerate(int $n): array
+    {
+        $primes = [];
+
+        for ($potentialDivider = 2; $potentialDivider <= $n; ++$potentialDivider) {
+            while ($n % $potentialDivider === 0) {
+                $primes[] = $potentialDivider;
+                $n /= $potentialDivider;
+            }
+        }
+
+        return $primes;
+    }
+
 }
